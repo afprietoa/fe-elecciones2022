@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>
+                REPORTE DE MESAS
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <table class="table">
+                            <tr>
+                                <th *ngFo="let column of columnNames">{{column}}</th>
+                            </tr>
+                            <ng-container *ngFor="let result of results">
+                                <tr>
+                                    <td>{{result.table}}</td>
+                                    <td>{{result.votes}}</td>
+                                    <td><progress max="100" [value]="result.votes"></progress></td>
+                                </tr>
+                            </ng-container>
+                        </table>
+                    </div>
+
+                    <div class="col-lg-6">
+
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

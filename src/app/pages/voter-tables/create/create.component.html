@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header *ngIf="creationMode">
+                CREAR MESA
+            </nb-card-header>
+            <nb-card-header *ngIf="!creationMode">
+                ACTUALIZAR MESA
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Número de mesa</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="number" class="form-control" [(ngModel)] = "voterTable.number"/>
+                        <p *ngIf="sendingAttemp && voterTable.number==null">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Cantidad inscritos</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="number" class="form-control" [(ngModel)] = "voterTable.registered_documents"/>
+                        <p *ngIf="sendingAttemp && voterTable.registered_documents==null">Requerido</p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">
+                        Crear
+                    </button>
+                    <button *ngIf="!creationMode" class="btn btn-primary btn-block" (click)="edit()">
+                        Actualizar
+                    </button>
+                </div>
+            </nb-card-body>
+
+        </nb-card>
+    </div>
+</div>
